@@ -1,12 +1,11 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Quanlin Yi
+- **Dot Number**: yi.552
+- **Due Date**: Mon Sep 16, 2024 4:10pm
 
 ## Assignment Overview
 
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,8 +28,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -52,8 +49,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -66,8 +61,6 @@ project. Specifically, students should be able to:
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -98,23 +91,18 @@ do good work.
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+My career goal is to become a game developer, to design a variety of games with
+different styles. In terms of hobby, I love programming, I have learned
+programming stuff early and write several projects such as Discord Chatting bot
+. In terms of sport, I love badminton, ski and working out.
 
 ## Assignment
-
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -123,8 +111,6 @@ etc. Make of this whatever seems interesting to you, and keep in mind that
 you're just brainstorming right now. You do not have to commit to anything.
 
 ### Example Component
-
-<!-- TODO: review this example component then delete this comment -->
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -192,70 +178,90 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: Command
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - The purpose of this component is to model commands of a chat bot ,
+    our intent of design is to include only the basic function in my design that
+    is necessarily needed in a custom command.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
-  - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - Runnable run(String... strCmds); - run the command using 'strCmds' that represents the user input of commands, if permission is not enough, print error message.
+    - String help(); - return help documents
+    - List<Permission> getPermission() - return a list of permission that is able to run this command.
+    - boolean setPermission() - set the permissions that is able to run this command
+    - boolean setHelp(String help) - change the help message if user is an administrator.
+    - boolean setAction(Runnable newAction) - change the behavior of this command for run.
+   - **Secondary Methods**:
+    - boolean setPermission(User administrator,List<Permission> permissions) - change the roles that is able to run this command (requires administrator permission),return whether the change is successful.
+    - boolean setHelp(User administrator,String help) - change the help message if user is an administrator.
+    - boolean setAction(User administrator,Runnable newAction) - change the behavior of this command.
+    - static boolean canInvoke(User user,Command command) - return whether user has enough permission to perform this command.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it's mutable since help text , permission and action can be changed.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it relies on String to store help message and List for permissions.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - this component need enums of some common instances of User,
+      since roles can be preseted, e.g. Guest, Administrator.
+      Also, permissions can be preseted e.g. setUserPermission
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, the secondary methods will call the kernal methods, for example,
+      the secondary method setAction(User administrator,Runnable newAction) will
+      verify the user has the administrator permission , if the user has, call the kernel method.
+      else return false.
 
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: User
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - A representitive of user that is stored in the system of chatbot
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - String getId() return the unique id this user has.
+    - List<Permission> getPermission() return the permissions user currently have
+    - boolean setPermission(List<Permission> permissions) set the user's permission user currently have
+    to new permissions given.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - boolean setPermission(User administrator,List<Permission> permissions) verify whether the operator has enough permission to set the user's permission user currently have to new permissions given. returns the result of this operation.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - It is mutable due to different permissions Users can have
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it relies on a String and a List for permissions.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, it needs some enums, Users should have some preseted instances with
+      fixed permissions, and permissions can be also Enum.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, the setPermission method verify whether the operator is an administrator and return true if successfully set permission, else return false.
 
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: Permission
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - What users need to perform an action
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - List<Commands> getAllowedCommands() -the commands users can invoke if user has this permission.
+    - boolean setAllowedCommands(List<Commands>) - update the commands user can invoke by the new commands given.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - String getDescription() returns the descriptive text including list of commands.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - The component should be mutable since the list of commands that users with certain permission can invoke can be changed
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - It replies on java.util.List, this is used for a list of runnable commands by the user has this permission
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - This need some enums of some built-in permission, such as setUserPermission
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, the method of getDescription will invoke getAllowedCommands to get a list of commands user can invoke ,which is needed for description.
 
 ## Post-Assignment
 
@@ -264,7 +270,6 @@ completed the assignment.
 
 ### Changelog
 
-<!-- TODO: create CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -286,9 +291,9 @@ the following form: YYYY.0M.0D.
 
 ### Added
 
-- Designed a <!-- insert name of component 1 here --> component
-- Designed a <!-- insert name of component 2 here --> component
-- Designed a <!-- insert name of component 3 here --> component
+- Designed a Command component
+- Designed a User component
+- Designed a Permission component
 ```
 
 Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
@@ -303,8 +308,6 @@ of development.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
-
 If you have completed the assignment using this template, we recommend that
 you convert it to a PDF before submission. If you're not sure how, check out
 this [Markdown to PDF guide][markdown-to-pdf-guide]. However, PDFs should be
@@ -313,11 +316,7 @@ all your work is there before submitting. For future assignments, you will
 just be submitting a link to a pull request. This will be the only time
 you have to submit any PDFs.
 
-<!-- TODO: upload a PDF of this document and the CHANGELOG to Carmen then delete this comment -->
-
 ### Peer Review
-
-<!-- TODO: review the peer review guidelines then delete this comment -->
 
 Following the completion of this assignment, you will be assigned three
 students' component brainstorming assignments for review. Your job during the
