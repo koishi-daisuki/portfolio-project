@@ -8,14 +8,6 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
-## [2024.10.02]
-
-### Added
-
-- Designed a Command component
-- Designed a User component
-- Designed a Permission component
-
 ## [2024.08.07]
 
 ### Added
