@@ -8,6 +8,15 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
+## [2024.10.03]
+
+### Added
+
+- Updated a Command component
+- Updated a User component
+- Updated a Permission component
+- Designed a proof of concept for Permission component
+
 ## [2024.10.02]
 
 ### Added
