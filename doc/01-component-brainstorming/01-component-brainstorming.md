@@ -6,7 +6,6 @@
 
 ## Assignment Overview
 
-
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
 implement, but your component must fit within the constraints of our software
@@ -143,10 +142,10 @@ format, we can be more confident that your designs will be possible.
         mutate `this`.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-        - No. All methods work with integers or other NaturalNumbers.
+      - No. All methods work with integers or other NaturalNumbers.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-        - Yes. NaturalNumber is base 10, and we track that in a constant called
+      - Yes. NaturalNumber is base 10, and we track that in a constant called
           `RADIX`.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
@@ -190,11 +189,11 @@ will likely refine your design to make your implementation easier to use.
     - boolean setPermission() - set the permissions that is able to run this command
     - boolean setHelp(String help) - change the help message if user is an administrator.
     - boolean setAction(Runnable newAction) - change the behavior of this command for run.
-   - **Secondary Methods**:
-    - boolean setPermission(User administrator,List<Permission> permissions) - change the roles that is able to run this command (requires administrator permission),return whether the change is successful.
-    - boolean setHelp(User administrator,String help) - change the help message if user is an administrator.
-    - boolean setAction(User administrator,Runnable newAction) - change the behavior of this command.
-    - static boolean canInvoke(User user,Command command) - return whether user has enough permission to perform this command.
+  - **Secondary Methods**:
+  - boolean setPermission(User administrator,List<Permission> permissions) - change the roles that is able to run this command (requires administrator permission),return whether the change is successful.
+  - boolean setHelp(User administrator,String help) - change the help message if user is an administrator.
+  - boolean setAction(User administrator,Runnable newAction) - change the behavior of this command.
+  - static boolean canInvoke(User user,Command command) - return whether user has enough permission to perform this command.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
@@ -213,7 +212,6 @@ will likely refine your design to make your implementation easier to use.
       the secondary method setAction(User administrator,Runnable newAction) will
       verify the user has the administrator permission , if the user has, call the kernel method.
       else return false.
-
 
 - Component Design #2: User
   - **Description**:
@@ -240,15 +238,16 @@ will likely refine your design to make your implementation easier to use.
       Answer, explain, and give at least one example:
       - Yes, the setPermission method verify whether the operator is an administrator and return true if successfully set permission, else return false.
 
-
 - Component Design #3: Permission
   - **Description**:
-    - What users need to perform an action
+    -
   - **Kernel Methods**:
-    - List<Commands> getAllowedCommands() -the commands users can invoke if user has this permission.
-    - boolean setAllowedCommands(List<Commands>) - update the commands user can invoke by the new commands given.
+    - List<Command> getAllowedCommands() -the commands users can invoke if user has this permission.
+    - boolean setAllowedCommands(List<Command>) - update the commands user can invoke by the new commands given.
   - **Secondary Methods**:
     - String getDescription() returns the descriptive text including list of commands.
+    - boolean addAllowedCommand(Command command) returns whether the add action to the allowed commands is successful.
+    - boolean removeAllowedCommand(Command command) return whether the remove action to the allowed commands is successful.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
@@ -269,7 +268,6 @@ The following sections detail everything that you should do once you've
 completed the assignment.
 
 ### Changelog
-
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
