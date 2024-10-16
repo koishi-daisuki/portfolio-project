@@ -51,4 +51,14 @@ public final class Permission implements PermissionSecondary {
         return this.id;
     }
 
+    public static void main(String[] args) {
+        Permission permission = new Permission("Administrator",
+                "1. the highest permission, able to execute every command");
+        System.out.println(
+                "permission.getDescription() = " + permission.getDescription());
+        System.out.println("permission.getId() = " + permission.getId());
+        System.out.println("permission.getName() = " + permission.getName());
+
+    }
+
 }
