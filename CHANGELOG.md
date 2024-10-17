@@ -8,6 +8,16 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
+## [2024.10.16]
+
+### Added
+
+- Updated A main method for invoking methods of Permission class
+- rename PermissionKernal -> PermissionKernel
+- rename PermissionSecondary -> Permission
+- rename Permission -> Permission1
+- modify javadocs for Permission and PermissionKernel
+- make PermissionKernel extends Standard
 ## [2024.10.03]
 
 ### Added
