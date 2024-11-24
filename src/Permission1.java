@@ -4,8 +4,9 @@ import java.util.UUID;
 /**
  * the default implementation of permission, that users has and used to invoke
  * command this is created for verification purpose.
+ *
  */
-public final class Permission1 implements Permission {
+public final class Permission1 extends PermissionSecondary {
 
     /**
      * the name of the permission.
@@ -20,7 +21,7 @@ public final class Permission1 implements Permission {
     /**
      * the description text of the permission.
      */
-    private String help;
+    private String description;
 
     /**
      * the unique id the permission has.
@@ -32,19 +33,20 @@ public final class Permission1 implements Permission {
      *
      * @param name
      *            the name of this permission
-     * @param help
+     * @param description
      *            the description text of the permission
      */
-    public Permission1(String name, String help) {
+    public Permission1(String name, String description) {
         this.name = name;
-        this.help = help;
+        addToSet(name);
+        this.description = description;
         this.id = UUID.randomUUID().toString();
     }
 
     @Override
     public String getDescription() {
 
-        return this.name + "\n" + this.help;
+        return this.description;
     }
 
     @Override
@@ -59,7 +61,16 @@ public final class Permission1 implements Permission {
      */
     public static void main(String[] args) {
         Permission1 permission = new Permission1("Administrator",
-                "1. the highest permission, able to execute every command");
+                "Administrator:\n"
+                        + "1. the highest permission, able to execute every command");
+        System.out.println(
+                "permission.getDescription() = " + permission.getDescription());
+        System.out.println("permission.getId() = " + permission.getId());
+        System.out.println("permission.getName() = " + permission.getName());
+        boolean setDescription = permission.setDescription("Administrator:\n"
+                + "1. the highest permission, able to execute every command 1");
+        assert setDescription;
+        permission.setName("Admin");
         System.out.println(
                 "permission.getDescription() = " + permission.getDescription());
         System.out.println("permission.getId() = " + permission.getId());
@@ -70,7 +81,7 @@ public final class Permission1 implements Permission {
     @Override
     public void clear() {
         this.name = null;
-        this.help = null;
+        this.description = null;
         this.id = null;
     }
 
@@ -83,7 +94,8 @@ public final class Permission1 implements Permission {
                     .getDeclaredConstructor().newInstance();
             clazz.getDeclaredField("id").set(newPermission, this.id);
             clazz.getDeclaredField("name").set(newPermission, this.name);
-            clazz.getDeclaredField("help").set(newPermission, this.help);
+            clazz.getDeclaredField("description").set(newPermission,
+                    this.description);
             return newPermission;
         } catch (InstantiationException | IllegalAccessException
                 | IllegalArgumentException | NoSuchFieldException
@@ -98,9 +110,32 @@ public final class Permission1 implements Permission {
         assert arg0 instanceof Permission1 : ""
                 + "Violation of: arg0 is of dynamic type Permission1";
         this.name = arg0.getName();
-        this.help = arg0.getDescription();
+        this.description = arg0.getDescription();
         this.id = arg0.getId();
         arg0.clear();
+    }
+
+    @Override
+    public boolean setName(String name) {
+        if (super.checkUniqueness(name)) {
+            if (!this.name.isBlank()) {
+                removeFromSet(this.name);
+            }
+            this.description = this.description.replace(this.name, name);
+            this.name = name;
+            addToSet(name);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean setDescription(String description) {
+        if (description.startsWith(this.name + ":\n")) {
+            this.description = description;
+            return true;
+        }
+        return false;
     }
 
 }
