@@ -7,7 +7,24 @@ and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
 ## [Unreleased]
+## [2024.11.4]
 
+### Added
+
+- Updated A main method for invoking methods of Permission class
+- implement Standard method in Permission1 class, with clear(),newInstance(),transferFrom(Permission arg0)
+- Added abstract class of PermissionSecondary, and implement equals(Object o),toString(),hashCode() by using the kernel methods only .
+
+## [2024.10.16]
+
+### Added
+
+- Updated A main method for invoking methods of Permission class
+- rename PermissionKernel -> PermissionKernel
+- rename PermissionSecondary -> Permission
+- rename Permission -> Permission1
+- modify javadocs for Permission and PermissionKernel
+- make PermissionKernel extends Standard
 ## [2024.10.03]
 
 ### Added
