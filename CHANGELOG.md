@@ -6,7 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+
 ## [Unreleased]
+## [2024.11.24]
+
+### Added
+
+- Designed kernel implementation for Permission component
+- Added two secondary method setName and setDescription in `Permission1` and `PermissionKernel`
+- Added three static methods in abstract class `PermissionSecondary` called checkUniqueness and removeFromSet and addToSet.
+
+### Updated
+
+- Changed design to include the convention and correspondence included in `PermissionSecondary`
 ## [2024.11.4]
 
 ### Added
