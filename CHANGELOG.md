@@ -8,6 +8,17 @@ the following form: YYYY.0M.0D.
 
 
 ## [Unreleased]
+
+## [2024.12.3]
+
+### Added
+
+- Test cases for `Permission`
+-
+### Updated
+
+- modify the constructor of Permission1.java
+
 ## [2024.11.24]
 
 ### Added
