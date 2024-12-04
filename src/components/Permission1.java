@@ -1,3 +1,6 @@
+package components;
+// import static org.junit.Assert.assertTrue;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
@@ -5,6 +8,14 @@ import java.util.UUID;
  * the default implementation of permission, that users has and used to invoke
  * command this is created for verification purpose.
  *
+ * @convention <pre>
+ * Permission = <id,"name","description"> convention: for any p1,p2
+ * with type Permission, p1.id != p2.id. and p1.name != p2.name
+ * </pre>
+ *
+ * @correspondence <pre>
+ * $this = ($this.id, $this.name, $this.description).
+ * </pre>
  */
 public final class Permission1 extends PermissionSecondary {
 
@@ -38,9 +49,19 @@ public final class Permission1 extends PermissionSecondary {
      */
     public Permission1(String name, String description) {
         this.name = name;
-        addToSet(name);
-        this.description = description;
+        assert addToSet(name);
+        if (description.startsWith(name + ":\n")) {
+            this.description = description;
+        } else {
+            this.description = name + ":\n" + description;
+        }
         this.id = UUID.randomUUID().toString();
+    }
+
+    /**
+     * the private constructor for newInstance method.
+     */
+    private Permission1() {
     }
 
     @Override
@@ -80,9 +101,9 @@ public final class Permission1 extends PermissionSecondary {
 
     @Override
     public void clear() {
-        this.name = null;
-        this.description = null;
-        this.id = null;
+        removeFromSet(this.name);
+        this.name = "default";
+        this.description = "default:\ndefault";
     }
 
     @Override
@@ -90,17 +111,21 @@ public final class Permission1 extends PermissionSecondary {
         Class<?> clazz = this.getClass();
 
         try {
+            clazz.getDeclaredConstructor().setAccessible(true);
             Permission newPermission = (Permission) clazz
                     .getDeclaredConstructor().newInstance();
+            clazz.getDeclaredField("id").setAccessible(true);
             clazz.getDeclaredField("id").set(newPermission, this.id);
+            clazz.getDeclaredField("name").setAccessible(true);
             clazz.getDeclaredField("name").set(newPermission, this.name);
+            clazz.getDeclaredField("description").setAccessible(true);
             clazz.getDeclaredField("description").set(newPermission,
                     this.description);
             return newPermission;
         } catch (InstantiationException | IllegalAccessException
-                | IllegalArgumentException | NoSuchFieldException
-                | SecurityException | InvocationTargetException
-                | NoSuchMethodException e) {
+                | IllegalArgumentException | SecurityException
+                | InvocationTargetException | NoSuchMethodException
+                | NoSuchFieldException e) {
             throw new RuntimeException(e);
         }
     }

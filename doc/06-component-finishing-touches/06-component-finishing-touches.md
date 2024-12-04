@@ -1,8 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Quanlin Yi
+- **Dot Number**: yi.552
+- **Due Date**: Dec 4 4:10
 
 ## Assignment Overview
 
@@ -49,8 +49,6 @@ Many of these additional techniques are somewhat out of the scope of this
 course, but just knowing about them could set you up for long term success.
 
 ## Assignment Checklist
-
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -131,8 +129,6 @@ merges, you will need to pull the changes from main into your current branch
 to see them. If you don't like this workflow, you may try following the
 rebase strategies described [here](https://stackoverflow.com/questions/35790561/working-while-waiting-for-pending-pr)
 and [here](https://stackoverflow.com/questions/18021888/continue-working-on-a-git-branch-after-making-a-pull-request).
-
-<!-- TODO: make a new branch from main then delete this comment -->
 
 ## Assignment Tasks
 
@@ -298,18 +294,26 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-<!-- TODO: discuss -->
+By completing the portfolio project, I'm able to understand different duties of
+kernel, non-kernel interface, secondary abstract class and bottom classes.
+kernel methods are implemented in the bottom classes, and methods in non-kernel
+interface are implemented in the abstract class.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
-
-<!-- TODO: discuss -->
+When I brainstorming the project, I define a round dependency of different
+interfaces, which is not considered as a perfect design. So I choose one of the interface
+and add more methods into the interface.Also, when doing the kernel implementation,
+I realized some drawbacks of previous design, so I keeping update these to make sure
+the implementation is correct.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
-
-<!-- TODO: discuss -->
+I have more understanding of the architecture of the software development, especially
+the kernel structures. I think I still enjoy the software development,by observing different
+architecture and models of design, I can keep on update and optimize my structure,
+which is the procedure that I enjoyed.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -317,29 +321,34 @@ Take some time to fill them out honestly.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+Brainstorming and designing, make my code more understandable and define models
+for my components. Overall, these skills benefit me on the aspect of software development.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+Independently working on java projects, Understanding kernel-components structure.
+Independent Project experience.
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+This project make me more confident as working as a software development person.
+I do not hate the topic I picked, and I want to add more things into the project
+ by designing other components which is related to this components. And this will
+  make my project experience more valuable in resume.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+learn different languages and the most advanced techniques in software development.
+Jeremy are a good person to ask for help, as well as other professors who specialized in game.
+And the advisors are also helpful
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -358,8 +367,8 @@ the following form: YYYY.0M.0D.
 
 ### Added
 
-- Designed test suite for <!-- insert name of component here --> component
-- Designed two different use cases for <!-- insert name of component here --> component
+- Designed test suite for Permission component
+- Designed two different use cases for Permission component
 
 ### Updated
 
@@ -374,8 +383,6 @@ like to accomplish that, you will need to make GitHub releases after each pull
 request merge (or at least tag your commits). This is not required.
 
 ### Submission
-
-<!-- TODO: read the submission instructions then delete this comment -->
 
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
@@ -429,5 +436,4 @@ better for future students.
 
 <!-- TODO: follow the link to share your feedback then delete this comment -->
 
-[markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9

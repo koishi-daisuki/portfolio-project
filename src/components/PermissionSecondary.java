@@ -1,20 +1,15 @@
+package components;
+
 import components.set.Set;
 import components.set.Set1L;;;
 
 /**
  * Abstract class of Permission. implement key function by using kernel methods.
  *
- * @convention <pre>
- * Permission = <id,"name","description"> convention: for any p1,p2
- * with type Permission, p1.id != p2.id. and p1.name != p2.name
- * </pre>
- *
- * @correspondence <pre>
- * $this = ($this.id, $this.name, $this.description).
- * </pre>
  *
  */
 public abstract class PermissionSecondary implements Permission {
+
     /**
      * the set of name.
      */
@@ -27,8 +22,16 @@ public abstract class PermissionSecondary implements Permission {
      *            the name want to check uniqueness.
      * @return true if the set does not contains name. else return false.
      */
-    protected static boolean checkUniqueness(String name) {
+    public static boolean checkUniqueness(String name) {
         return !set.contains(name);
+    }
+
+    /**
+     * clear the set of name. For the use of tests only, this will make the
+     * contract crash!
+     */
+    public static void clearSet() {
+        set = new Set1L<>();
     }
 
     /**
@@ -39,7 +42,9 @@ public abstract class PermissionSecondary implements Permission {
     public boolean equals(Object obj) {
         boolean result = false;
         if (obj instanceof PermissionSecondary perm) {
-            result = perm.getId().equals(this.getId());
+            result = perm.getId().equals(this.getId())
+                    && perm.getName().equals(this.getName())
+                    && perm.getDescription().equals(this.getDescription());
         }
 
         return result;
@@ -60,9 +65,9 @@ public abstract class PermissionSecondary implements Permission {
      */
     @Override
     public String toString() {
-        return this.getClass().getName() + " [id=" + this.getId() + ", name="
-                + this.getName() + ", description=" + this.getDescription()
-                + "]";
+        return this.getClass().getSimpleName() + " [id=" + this.getId()
+                + ", name=" + this.getName() + ", description="
+                + this.getDescription() + "]";
     }
 
     /**
