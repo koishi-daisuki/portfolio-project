@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * PermissionTest.java test cases for permission
+ * PermissionTest.java test cases for permission.
  */
 public class PermissionTest {
 
@@ -63,7 +63,7 @@ public class PermissionTest {
     }
 
     /**
-     * test getDesciption method.
+     * test getDescription method.
      */
     @Test
     public void testGetDescription1() {
@@ -74,7 +74,7 @@ public class PermissionTest {
     }
 
     /**
-     * test getDesciption method with description that is starts with name.
+     * test getDescription method with description that is starts with name.
      */
     @Test
     public void testGetDescription2() {

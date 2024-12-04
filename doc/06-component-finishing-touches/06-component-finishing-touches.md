@@ -1,8 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Quanlin Yi
+- **Dot Number**: yi.552
+- **Due Date**: Dec 4 4:10
 
 ## Assignment Overview
 
@@ -304,13 +304,17 @@ interface are implemented in the abstract class.
 > software development. If so, what are those gaps and how did you address them?
 When I brainstorming the project, I define a round dependency of different
 interfaces, which is not considered as a perfect design. So I choose one of the interface
-and add more methods into the interface.
+and add more methods into the interface.Also, when doing the kernel implementation,
+I realized some drawbacks of previous design, so I keeping update these to make sure
+the implementation is correct.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
-
-<!-- TODO: discuss -->
+I have more understanding of the architecture of the software development, especially
+the kernel structures. I think I still enjoy the software development,by observing different
+architecture and models of design, I can keep on update and optimize my structure,
+which is the procedure that I enjoyed.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -318,25 +322,32 @@ and add more methods into the interface.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+Brainstorming and designing, make my code more understandable and define models
+for my components. Overall, these skills benefit me on the aspect of software development.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+Independently working on java projects, Understanding kernel-components structure.
+Independent Project experience.
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+This project make me more confident as working as a software development person.
+I do not hate the topic I picked, and I want to add more things into the project
+ by designing other components which is related to this components. And this will
+  make my project experience more valuable in resume.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+learn different languages and the most advanced techniques in software development.
+Jeremy are a good person to ask for help, as well as other professors who specialized in game.
+And the advisors are also helpful
 
 ### Changelog
 
