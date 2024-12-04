@@ -5,6 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import components.Permission;
+import components.Permission1;
+
 /**
  * PermissionTest.java test cases for permission.
  */
@@ -15,6 +18,7 @@ public class PermissionTest {
      */
     @Test
     public void testConstructor1() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         assertEquals("name", p.getName());
         assertEquals("name:\ndescription", p.getDescription());
@@ -25,6 +29,7 @@ public class PermissionTest {
      */
     @Test
     public void testConstructor2() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "name:\ndescription");
         assertEquals("name", p.getName());
         assertEquals("name:\ndescription", p.getDescription());
@@ -35,6 +40,7 @@ public class PermissionTest {
      */
     @Test
     public void testSetName() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         assertTrue(p.setName("newName"));
         assertEquals("newName", p.getName());
@@ -46,6 +52,7 @@ public class PermissionTest {
      */
     @Test
     public void testGetId() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         Permission p2 = new Permission1("Name", "description");
         assertEquals(p.getId(), p.getId());
@@ -57,6 +64,7 @@ public class PermissionTest {
      */
     @Test
     public void testGetName() {
+        Permission1.clearSet();
         String name = "name";
         Permission p = new Permission1(name, "description");
         assertEquals(name, p.getName());
@@ -67,6 +75,7 @@ public class PermissionTest {
      */
     @Test
     public void testGetDescription1() {
+        Permission1.clearSet();
         String name = "name";
         String description = "description";
         Permission p = new Permission1(name, description);
@@ -78,6 +87,7 @@ public class PermissionTest {
      */
     @Test
     public void testGetDescription2() {
+        Permission1.clearSet();
         String name = "name";
         String description = name + ":\ndescription";
         Permission p = new Permission1(name, description);
@@ -89,6 +99,7 @@ public class PermissionTest {
      */
     @Test
     public void testSetDescriptionFalse() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         assertFalse(p.setDescription("newDescription"));
         assertEquals("name:\ndescription", p.getDescription());
@@ -99,6 +110,7 @@ public class PermissionTest {
      */
     @Test
     public void testSetDescriptionTrue() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         assertTrue(p.setDescription("name:\nnewDescription"));
         assertEquals("name:\nnewDescription", p.getDescription());
@@ -109,6 +121,7 @@ public class PermissionTest {
      */
     @Test
     public void testCheckUniquenessTrue() {
+        Permission1.clearSet();
         Permission1.addToSet("name");
         assertTrue(Permission1.checkUniqueness("newName"));
     }
@@ -118,6 +131,7 @@ public class PermissionTest {
      */
     @Test
     public void testCheckUniquenessFalse() {
+        Permission1.clearSet();
         Permission1.addToSet("name");
         assertFalse(Permission1.checkUniqueness("name"));
     }
@@ -127,6 +141,7 @@ public class PermissionTest {
      */
     @Test
     public void testRemoveFromSet() {
+        Permission1.clearSet();
         Permission1.addToSet("name");
         assertTrue(Permission1.removeFromSet("name"));
         assertFalse(Permission1.removeFromSet("name"));
@@ -137,6 +152,7 @@ public class PermissionTest {
      */
     @Test
     public void testAddToSet() {
+        Permission1.clearSet();
         assertTrue(Permission1.addToSet("name"));
         assertFalse(Permission1.addToSet("name"));
         assertTrue(Permission1.removeFromSet("name"));
@@ -147,6 +163,7 @@ public class PermissionTest {
      */
     @Test
     public void testToString1() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         String id = p.getId();
         assertEquals(
@@ -160,6 +177,7 @@ public class PermissionTest {
      */
     @Test
     public void testToString2() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "name:\ndescription");
         String id = p.getId();
         assertEquals(
@@ -173,6 +191,7 @@ public class PermissionTest {
      */
     @Test
     public void testEqualsTrue() {
+        Permission1.clearSet();
         Permission p1 = new Permission1("name", "description");
         Permission p2 = p1.newInstance();
         assertTrue(p1.equals(p2));
@@ -183,8 +202,22 @@ public class PermissionTest {
      */
     @Test
     public void testEqualsFalse() {
+        Permission1.clearSet();
         Permission p1 = new Permission1("name", "description");
         Permission p2 = new Permission1("Name", "description");
+        assertFalse(p1.equals(p2));
+    }
+
+    /**
+     * Test equals method with different description.
+     */
+
+    @Test
+    public void testEqualsDiffDesc() {
+        Permission1.clearSet();
+        Permission p1 = new Permission1("name", "description");
+        Permission p2 = p1.newInstance();
+        p2.setDescription("name:\nDesc");
         assertFalse(p1.equals(p2));
     }
 
@@ -193,6 +226,7 @@ public class PermissionTest {
      */
     @Test
     public void testHashCode() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         assertEquals(p.getId().hashCode(), p.hashCode());
     }
@@ -202,6 +236,7 @@ public class PermissionTest {
      */
     @Test
     public void testNewInstance() {
+        Permission1.clearSet();
         Permission p1 = new Permission1("name", "description");
         Permission p2 = p1.newInstance();
         assertTrue(p1.equals(p2));
@@ -212,6 +247,7 @@ public class PermissionTest {
      */
     @Test
     public void testTransferFrom() {
+        Permission1.clearSet();
         Permission p1 = new Permission1("name", "description");
         Permission p2 = new Permission1("Name", "description");
         Permission p3 = p1.newInstance();
@@ -226,6 +262,7 @@ public class PermissionTest {
      */
     @Test
     public void testClear() {
+        Permission1.clearSet();
         Permission p = new Permission1("name", "description");
         String id = p.getId();
         p.clear();

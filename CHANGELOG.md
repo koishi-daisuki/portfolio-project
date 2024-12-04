@@ -6,18 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
-
 ## [Unreleased]
 
 ## [2024.12.3]
 
 ### Added
 
-- Test cases for `Permission`
--
+- Designed test suite for Permission component in `PermissionTest`
+- Designed two different use cases for Permission component in `PermissionDemo`
+- clearSet() method in `PermissionSecondary` to makesure the test runs successfully
+
 ### Updated
 
 - modify the constructor of Permission1.java
+- move the components into components package.
+- move the `@Convention` and `@Correspondence` from `PermissionSecondary` to `Permission1`
 
 ## [2024.11.24]
 
@@ -30,6 +33,7 @@ the following form: YYYY.0M.0D.
 ### Updated
 
 - Changed design to include the convention and correspondence included in `PermissionSecondary`
+
 ## [2024.11.4]
 
 ### Added
@@ -48,6 +52,7 @@ the following form: YYYY.0M.0D.
 - rename Permission -> Permission1
 - modify javadocs for Permission and PermissionKernel
 - make PermissionKernel extends Standard
+
 ## [2024.10.03]
 
 ### Added

@@ -1,4 +1,5 @@
-import static org.junit.Assert.assertTrue;
+package components;
+// import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
@@ -7,6 +8,14 @@ import java.util.UUID;
  * the default implementation of permission, that users has and used to invoke
  * command this is created for verification purpose.
  *
+ * @convention <pre>
+ * Permission = <id,"name","description"> convention: for any p1,p2
+ * with type Permission, p1.id != p2.id. and p1.name != p2.name
+ * </pre>
+ *
+ * @correspondence <pre>
+ * $this = ($this.id, $this.name, $this.description).
+ * </pre>
  */
 public final class Permission1 extends PermissionSecondary {
 
@@ -40,7 +49,7 @@ public final class Permission1 extends PermissionSecondary {
      */
     public Permission1(String name, String description) {
         this.name = name;
-        assertTrue(addToSet(name));
+        assert addToSet(name);
         if (description.startsWith(name + ":\n")) {
             this.description = description;
         } else {
@@ -92,6 +101,7 @@ public final class Permission1 extends PermissionSecondary {
 
     @Override
     public void clear() {
+        removeFromSet(this.name);
         this.name = "default";
         this.description = "default:\ndefault";
     }

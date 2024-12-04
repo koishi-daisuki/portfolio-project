@@ -1,3 +1,4 @@
+package components;
 /**
  * The permission users need to perform an action, including add and remove
  * actions.
